@@ -28,9 +28,9 @@ const Dashboard = () => {
 
   const quickActions = [
     { title: "Manage Students", icon: GraduationCap, path: "/students", description: "View and manage student records", color: "bg-primary" },
-    { title: "Attendance", icon: Calendar, path: "/attendance", description: "Mark and track attendance", color: "bg-secondary" },
-    { title: "Fee Management", icon: DollarSign, path: "/finance", description: "Process fees and payments", color: "bg-accent" },
-    { title: "Reports", icon: FileText, path: "/reports", description: "Generate comprehensive reports", color: "bg-primary" },
+    { title: "Visitor Entry", icon: UserCheck, path: "/visitors", description: "Check-in/out visitors", color: "bg-secondary" },
+    { title: "Staff Portal", icon: Users, path: "/staff-portal", description: "Staff attendance & payslips", color: "bg-accent" },
+    { title: "HR & Payroll", icon: DollarSign, path: "/hr-payroll", description: "Generate payslips automatically", color: "bg-primary" },
   ];
 
   const recentActivities = [
