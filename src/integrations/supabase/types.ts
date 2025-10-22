@@ -14,7 +14,175 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      attendance: {
+        Row: {
+          attendance_days: number
+          created_at: string | null
+          employee_id: string
+          id: string
+          month: string
+          working_days: number
+        }
+        Insert: {
+          attendance_days: number
+          created_at?: string | null
+          employee_id: string
+          id?: string
+          month: string
+          working_days: number
+        }
+        Update: {
+          attendance_days?: number
+          created_at?: string | null
+          employee_id?: string
+          id?: string
+          month?: string
+          working_days?: number
+        }
+        Relationships: [
+          {
+            foreignKeyName: "attendance_employee_id_fkey"
+            columns: ["employee_id"]
+            isOneToOne: false
+            referencedRelation: "employees"
+            referencedColumns: ["employee_id"]
+          },
+        ]
+      }
+      employees: {
+        Row: {
+          basic_salary: number
+          created_at: string | null
+          department: string
+          email: string | null
+          employee_id: string
+          id: string
+          joining_date: string | null
+          name: string
+          phone: string | null
+          position: string
+          status: string | null
+          updated_at: string | null
+        }
+        Insert: {
+          basic_salary: number
+          created_at?: string | null
+          department: string
+          email?: string | null
+          employee_id: string
+          id?: string
+          joining_date?: string | null
+          name: string
+          phone?: string | null
+          position: string
+          status?: string | null
+          updated_at?: string | null
+        }
+        Update: {
+          basic_salary?: number
+          created_at?: string | null
+          department?: string
+          email?: string | null
+          employee_id?: string
+          id?: string
+          joining_date?: string | null
+          name?: string
+          phone?: string | null
+          position?: string
+          status?: string | null
+          updated_at?: string | null
+        }
+        Relationships: []
+      }
+      payslips: {
+        Row: {
+          basic_salary: number
+          components: Json
+          earned_basic: number
+          employee_id: string
+          generated_at: string | null
+          gross_salary: number
+          id: string
+          month: string
+          net_salary: number
+          paid_at: string | null
+          sent_at: string | null
+          status: string | null
+          total_allowances: number
+          total_deductions: number
+        }
+        Insert: {
+          basic_salary: number
+          components: Json
+          earned_basic: number
+          employee_id: string
+          generated_at?: string | null
+          gross_salary: number
+          id?: string
+          month: string
+          net_salary: number
+          paid_at?: string | null
+          sent_at?: string | null
+          status?: string | null
+          total_allowances: number
+          total_deductions: number
+        }
+        Update: {
+          basic_salary?: number
+          components?: Json
+          earned_basic?: number
+          employee_id?: string
+          generated_at?: string | null
+          gross_salary?: number
+          id?: string
+          month?: string
+          net_salary?: number
+          paid_at?: string | null
+          sent_at?: string | null
+          status?: string | null
+          total_allowances?: number
+          total_deductions?: number
+        }
+        Relationships: [
+          {
+            foreignKeyName: "payslips_employee_id_fkey"
+            columns: ["employee_id"]
+            isOneToOne: false
+            referencedRelation: "employees"
+            referencedColumns: ["employee_id"]
+          },
+        ]
+      }
+      salary_components: {
+        Row: {
+          calculation_type: string
+          component_name: string
+          component_type: string
+          created_at: string | null
+          id: string
+          is_active: boolean | null
+          value: number
+        }
+        Insert: {
+          calculation_type: string
+          component_name: string
+          component_type: string
+          created_at?: string | null
+          id?: string
+          is_active?: boolean | null
+          value: number
+        }
+        Update: {
+          calculation_type?: string
+          component_name?: string
+          component_type?: string
+          created_at?: string | null
+          id?: string
+          is_active?: boolean | null
+          value?: number
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
